@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yvy-rg-tL2">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,15 +9,36 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Enter Name Interface Controller-->
+        <scene sceneID="Dvu-Ru-jfN">
+            <objects>
+                <controller id="Yvy-rg-tL2" customClass="EnterNameInterfaceController" customModule="SequenceGame_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="Enter Your Name" id="kRr-6B-yfd">
+                            <connections>
+                                <action selector="btnPressed" destination="Yvy-rg-tL2" id="Jen-Qr-jBW"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-419" y="58"/>
+        </scene>
+        <!--mySegue-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="SequenceGame_WatchKit_App" customModuleProvider="target">
+                <controller identifier="mySegue" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="SequenceGame_WatchKit_App" customModuleProvider="target">
                     <items>
                         <imageView width="101" height="46" alignment="left" animationDuration="1" id="s6C-sB-RoE" customClass="imageInterface" customModule="SequenceGame_WatchKit_Extension"/>
+                        <imageView width="101" height="46" alignment="left" animationDuration="1" id="PCy-Sn-M3s" customClass="imageInterface" customModule="SequenceGame_WatchKit_Extension"/>
+                        <imageView width="101" height="46" alignment="left" animationDuration="1" id="8Tf-ac-FLl" customClass="imageInterface" customModule="SequenceGame_WatchKit_Extension"/>
+                        <imageView width="101" height="46" alignment="left" animationDuration="1" id="Cb7-yy-Fey" customClass="imageInterface" customModule="SequenceGame_WatchKit_Extension"/>
                     </items>
                     <connections>
                         <outlet property="imageView" destination="s6C-sB-RoE" id="dP2-B3-cT5"/>
+                        <outlet property="imageView2" destination="PCy-Sn-M3s" id="VgS-pz-PcB"/>
+                        <outlet property="imageView3" destination="8Tf-ac-FLl" id="CUq-d9-FWQ"/>
+                        <outlet property="imageView4" destination="Cb7-yy-Fey" id="f7Y-JV-ila"/>
                     </connections>
                 </controller>
             </objects>
