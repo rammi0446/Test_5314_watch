@@ -14,14 +14,14 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="SequenceGame_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <imageView width="64" height="22" alignment="left" image="fish" animationDuration="3" id="s6C-sB-RoE"/>
-                        <imageView height="42" alignment="left" image="sun" id="n6d-gs-aXC"/>
-                        <imageView height="39" alignment="left" image="sunglasses" id="4Va-Dj-Jzk"/>
-                        <imageView height="49" alignment="left" image="watermelon" id="Vvm-c6-Ntm"/>
+                        <imageView width="101" height="46" alignment="left" animationDuration="1" id="s6C-sB-RoE" customClass="imageInterface" customModule="SequenceGame_WatchKit_Extension"/>
                     </items>
+                    <connections>
+                        <outlet property="imageView" destination="s6C-sB-RoE" id="dP2-B3-cT5"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="25" y="-2.5"/>
+            <point key="canvasLocation" x="-106" y="33"/>
         </scene>
     </scenes>
 </document>

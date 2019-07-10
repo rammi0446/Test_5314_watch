@@ -12,18 +12,25 @@ import WatchConnectivity
 
 
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
+    //MARK:IMAGEVIEW
+    
+   
+   @IBOutlet weak var imageView: WKInterfaceImage!
+    
+  
+    
+ 
+    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
     }
     
-    var loading_1: UIImage!
-    var loading_2: UIImage!
-    var loading_3: UIImage!
     
     var images: [UIImage]!
  
     
     var animatedImage: UIImage!
+    var arr = [String: Any]()
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -44,15 +51,17 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         else {
             print("Watch: Phone does not support WatchConnectivity")
         }
-//        loading_1 = UIImage(named: "fish")
-//        loading_2 = UIImage(named: "sun")
-//        loading_3 = UIImage(named: "sunglasses")
-//
-////        images = [loading_1!, loading_2!, loading_3!]
-//
-//        animatedImage = UIImage.animatedImage(with: images, duration: 1.0)
+     
+      
+        images = [ UIImage(named: "fish"), UIImage(named: "sun"),  UIImage(named: "watermelon")].shuffled() as? [UIImage]
+         animatedImage = UIImage.animatedImage(with: images, duration: 1.0)
+        imageView.setImage(animatedImage)
+        imageView.startAnimating()
        
-        //ImageView.image = animatedImage
+       
+       
+       
+       
     }
     
     override func didDeactivate() {
@@ -62,7 +71,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
          print("WATCH: Got a message! on first screen")
-        print(message)
+        print(message["sequence"]!)
+        
+        
     }
 
 }
