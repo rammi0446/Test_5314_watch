@@ -7,25 +7,92 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class ViewController: UIViewController {
+class ViewController: UIViewController , WCSessionDelegate{
+    //MARKL:variables
+    var arr = [String]()
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
 
     @IBAction func fish(_ sender: Any) {
         print("you select fish")
+        self.arr.append("fish")
+        print(self.arr)
+        if(arr.count == 4)
+        {
+            sendData()
+        }
     }
     
     @IBAction func sun(_ sender: Any) {
         print("you select sun")
+        self.arr.append("sun")
+        print(self.arr)
+        if(arr.count == 4)
+        {
+            sendData()
+        }
     }
     @IBAction func sunglasses(_ sender: Any) {
         print("you select sunglasses")
+        self.arr.append("sunglasses")
+        print(self.arr)
+        if(arr.count == 4)
+        {
+            sendData()
+        }
     }
     @IBAction func watermelon(_ sender: Any) {
         print("you select watermelon")
+        self.arr.append("watermelon")
+        print(self.arr)
+        if(arr.count == 4)
+        {
+            sendData()
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        if (WCSession.isSupported()) {
+            print("PHONE: Phone supports WatchConnectivity!")
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
+        else {
+            print("PHONE: Phone does not support WatchConnectivity")
+        }
+       
+       
+    }
+    func sendData()
+    {
+        // check if the watch is paired / accessible
+        if (WCSession.default.isReachable) {
+            
+            
+            let seq = ["sequence": arr]
+            // send the message to the watch
+            WCSession.default.sendMessage(seq, replyHandler: nil)
+            
+        }
+        else {
+            print("PHONE: Cannot find the watch")
+        }
+        
     }
 
 
