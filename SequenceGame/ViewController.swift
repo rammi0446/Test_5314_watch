@@ -11,7 +11,7 @@ import WatchConnectivity
 
 class ViewController: UIViewController , WCSessionDelegate{
     //MARKL:variables
-    var arr = [String: Any]()
+    var arr = [Int]()
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
@@ -28,8 +28,9 @@ class ViewController: UIViewController , WCSessionDelegate{
 
     @IBAction func fish(_ sender: Any) {
         print("you select fish")
-        self.arr["first"] = 0
+        self.arr.append(0)
         print(self.arr)
+        print(self.arr.count)
         if(arr.count == 4)
         {
             sendData()
@@ -38,7 +39,7 @@ class ViewController: UIViewController , WCSessionDelegate{
     
     @IBAction func sun(_ sender: Any) {
         print("you select sun")
-        self.arr["second"] = 1
+       self.arr.append(1)
         print(self.arr)
         if(arr.count == 4)
         {
@@ -47,7 +48,7 @@ class ViewController: UIViewController , WCSessionDelegate{
     }
     @IBAction func sunglasses(_ sender: Any) {
         print("you select sunglasses")
-        self.arr["third"] = 2
+        self.arr.append(2)
         print(self.arr)
         if(arr.count == 4)
         {
@@ -56,7 +57,7 @@ class ViewController: UIViewController , WCSessionDelegate{
     }
     @IBAction func watermelon(_ sender: Any) {
         print("you select watermelon")
-        self.arr["forth"] = 3
+       self.arr.append(3)
         print(self.arr)
         if(arr.count == 4)
         {
@@ -87,6 +88,7 @@ class ViewController: UIViewController , WCSessionDelegate{
             let seq = ["sequence": arr]
             // send the message to the watch
             WCSession.default.sendMessage(seq, replyHandler: nil)
+            arr.removeAll()
             
         }
         else {
